@@ -42,12 +42,10 @@ public class Modelo {
 	public void insertarAula(Aula aula) throws OperationNotSupportedException { 
 		
 		aulas.insertar(aula); 
-		
 	}
 	public void borrarAula(Aula aula) throws OperationNotSupportedException { 
 		
 		aulas.borrar(aula);
-			
 	}
 	public Profesor[] getProfesores() {
 		return profesores.get();
@@ -67,12 +65,10 @@ public class Modelo {
 	public void insertarProfesor(Profesor profesor) throws OperationNotSupportedException { 
 		
 		profesores.insertar(profesor);
-		
 	}
 	public void borrarProfesor(Profesor profesor) throws OperationNotSupportedException { 
 		
 		profesores.borrar(profesor);
-		
 	}
 	public Reserva[] getReservas() {
 		return reservas.get();
@@ -92,12 +88,10 @@ public class Modelo {
 	public void realizarReserva(Reserva reserva) throws OperationNotSupportedException { 
 		
 		reservas.insertar(reserva);
-		
 	}
 	public void anularReserva(Reserva reserva) throws OperationNotSupportedException { 
 		
 		reservas.borrar(reserva);
-		
 	}
 	public Reserva[] getReservasAula(Aula aula) {
 		
