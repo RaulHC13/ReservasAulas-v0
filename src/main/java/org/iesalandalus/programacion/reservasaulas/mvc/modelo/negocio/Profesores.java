@@ -131,7 +131,8 @@ public class Profesores {
 	}
 	public String[] representar() {
 		
-		String[] representar = new String[tamano];
+		String[] representar = new String[tamano];/*Se crea un array de string en el que se copian
+		los valores del array coleccion en cada iteracion */
 		
 		for (int i = 0; !tamanoSuperado(i) ;i++) {
 			

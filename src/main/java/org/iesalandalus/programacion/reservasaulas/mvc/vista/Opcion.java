@@ -2,9 +2,9 @@ package org.iesalandalus.programacion.reservasaulas.mvc.vista;
 
 public enum Opcion {
 	
-	SALIR("Salir") {
+	SALIR("Salir") {//Se le da un mensaje a cada valor del enum
 		public void ejecutar() {
-			vista.salir();
+			vista.salir();//Ejecuta esta opcion si el ordinal es 0
 		}
 	},	
 	INSERTAR_AULA("Insertar aula") {
@@ -14,7 +14,7 @@ public enum Opcion {
 	},
 	BORRAR_AULA("Borrar aula") {
 		public void ejecutar() {
-			vista.borrarAula();
+			vista.borrarAula();;
 		}
 	},
 	BUSCAR_AULA("Buscar aula") {
@@ -64,7 +64,7 @@ public enum Opcion {
 	},
 	LISTAR_RESERVAS_AULA("Listar reservas aula") {
 		public void ejecutar() {
-			vista.listarReservasAulas();
+			vista.listarReservasAula();
 		}
 	},
 	LISTAR_RESERVAS_PROFESOR("Listar reservas profesor") {
@@ -108,10 +108,10 @@ public enum Opcion {
 	
 	public static boolean esOrdinalValido(int ordinal) {
 		return (ordinal >= 0 && ordinal <= values().length - 1);
-	}
+	}//Comprueba que el ordinal introducido esta comprendido entre 0 y la longitud menos 1
 		
 	@Override
 	public String toString() {
-		return String.format("%d.- %s", ordinal(), mensajeAMostrar);
+		return String.format("%d - %s", ordinal(), mensajeAMostrar);
 	}
 }

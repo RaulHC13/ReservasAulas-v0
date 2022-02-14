@@ -68,6 +68,6 @@ public class Reserva {
 	}
 	@Override
 	public String toString() {
-		return String.format("Reserva permanencia: %s, aula: %s, profesor: %s]", profesor, aula, permanencia);
+		return String.format("Reserva: %s,  %s,  %s]", permanencia, aula, profesor);
 	}
 }

@@ -11,7 +11,7 @@ public class Profesor {
 	private String correo;
 	private String telefono;
 	
-	public Profesor (String nombre, String correo) {
+	public Profesor (String nombre, String correo) { //Constructor sin telefono
 		
 		setNombre(nombre);
 		setCorreo(correo);
@@ -57,7 +57,7 @@ public class Profesor {
 		if (correo == null) {
 			throw new NullPointerException("ERROR: El correo del profesor no puede ser nulo.");
 		}
-		if (!correo.matches(ER_CORREO)) {
+		if (!correo.matches(ER_CORREO)) { //Matcher para comprobar que cumple el patron
 			throw new IllegalArgumentException("ERROR: El correo del profesor no es válido.");
 		}
 		this.correo = correo;
@@ -91,6 +91,6 @@ public class Profesor {
 
 	@Override
 	public String toString() {
-		return String.format("Profesor nombre: %s, correo: %s, telefono: %s", nombre, correo, telefono);
+		return String.format("Profesor: Nombre: %s, Correo: %s, Telefono: %s", nombre, correo, telefono);
 	}	
 }

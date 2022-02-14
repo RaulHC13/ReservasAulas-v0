@@ -23,7 +23,7 @@ public class Vista {
 	}
 	public void comenzar() {
 		int ordinalOpcion;
-		
+		//Bucle que solo acaba al seleccionar la opcion salir. Ordinal 0
 		do {
 			Consola.mostrarMenu();
 			ordinalOpcion = Consola.elegirOpcion();
@@ -45,25 +45,25 @@ public class Vista {
 			System.out.printf("%n%s", e.getMessage(), ERROR);
 		}
 	}
-	public void borrarAula(Aula aula) { 
+	public void borrarAula() { 
 		Consola.mostrarCabecera("Borrar aula");
 		
 		try {
-			Aula aulaBorrar = Consola.leerAula();
-			controlador.borrarAula(aulaBorrar);
+			controlador.borrarAula(Consola.leerAula());
 			System.out.println("Se ha borrado el aula.");
-		} catch (OperationNotSupportedException e) {
+		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
 			System.out.printf("%n%s", e.getMessage(), ERROR);
 		}
 	}	
-	public void buscarAula(Aula aula) {
+	public void buscarAula() {
 		Consola.mostrarCabecera("Buscar aula");
 		
 		try {
 			Aula aulaBuscar = Consola.leerAula();
 			controlador.buscarAula(aulaBuscar);
-			if (aulaBuscar != null) {
-				aula.toString();
+			if (aulaBuscar != null) {/*Si no se verifica que no es null, al buscar dará el resultado correcto y 
+			tambien tantos valores null como capacidad de array restantes.*/
+				aulaBuscar.toString();
 			} else {
 				System.out.println("No se ha encontrado el aula.");
 			}
@@ -73,7 +73,7 @@ public class Vista {
 	}
 	public void listarAulas() {
 		Consola.mostrarCabecera("Listar aulas");
-		
+		//Se crea un array de string y se llama al metodo para representar
 		String[] string = controlador.representarAulas();
 		if (string.length > 0) {
 			for (String aula : string) {
@@ -113,7 +113,7 @@ public class Vista {
 			Profesor profesorBuscar = Consola.leerProfesor();
 			controlador.buscarProfesor(profesorBuscar);
 			if (profesorBuscar != null) {
-				profesorBuscar.toString();
+				System.out.println("Se ha encontrado el profesor: " + profesorBuscar.toString());;
 			} else {
 				System.out.println("No se ha encontrado el profesor.");
 			}
@@ -188,7 +188,9 @@ public class Vista {
 		Reserva[] reservas = controlador.getReservasAula(aulaReserva);
 		if (reservas.length > 0) {
 			for (Reserva reservas2 : reservas) {
-				System.out.println(reservas2);
+				if (reservas2 !=null) {
+					System.out.println(reservas2);
+				}
 			}
 			
 		} else {
@@ -203,7 +205,9 @@ public class Vista {
 		Reserva[] reservas = controlador.getReservasProfesor(profesor);
 		if(reservas.length > 0) {
 			for (Reserva reserva4 : reservas) {
-				System.out.println(reserva4);
+				if (reserva4 != null) {
+					System.out.println(reserva4);
+				}
 			}
 		} else {
 			System.out.println("Este profesor no tiene ninguna reserva");
@@ -216,7 +220,9 @@ public class Vista {
 		Reserva[] reservas = controlador.getReservasPermanencia(permanencia);
 		if (reservas.length > 0) {
 			for (Reserva reserva6 : reservas) {
-				System.out.println(reserva6);
+				if (reserva6 != null) {
+					System.out.println(reserva6);
+				}
 			}
 		} else {
 			System.out.println("No hay ninguna reserva para esta permanencia");
@@ -224,7 +230,7 @@ public class Vista {
 	}
 	
 	public void consultarDisponibilidad() {
-		
+		//Se lee aula y permanencia. Se compara utilizando el metodo. Si esta disponible sera true.
 		Aula aula = Consola.leerAula();
 		Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
 		if (controlador.consultarDisponibilidadAula(aula, permanencia) == true) {

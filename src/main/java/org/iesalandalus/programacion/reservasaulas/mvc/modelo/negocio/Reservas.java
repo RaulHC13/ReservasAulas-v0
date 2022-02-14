@@ -143,13 +143,15 @@ public class Reservas {
 		return representar;
 	}
 	public Reserva[] getReservasProfesor(Profesor profesor) {
-		
+		//Se acepta un profesor como parametro 
 		Reserva[] reserva = new Reserva[capacidad];
 		
 		int j = 0;
 		for (int i = 0; !tamanoSuperado(i); i++) {
 			if (coleccionReservas[i].getProfesor().equals(profesor)) {
 				reserva[j++] = coleccionReservas[i];
+	/*El bucle recorre el array y por cada coincidencia con profesor suma una unidad en j 
+	 * y le asigna el valor de esa posicion del array coleccion*/
 			}
 		}
 		return reserva;
@@ -162,6 +164,7 @@ public class Reservas {
 		for (int i = 0; !tamanoSuperado(i); i++) {
 			if (coleccionReservas[i].getAula().equals(aula)) {
 				reserva[j++] = coleccionReservas[i];
+				//Mismo funcionamiento que getReservasProfesor
 			}
 		}
 		return reserva;
@@ -174,7 +177,7 @@ public class Reservas {
 	for (int i = 0; !tamanoSuperado(i); i++) {
 		if (coleccionReservas[i].getPermanencia().equals(permanencia)) {
 			reserva[j++] = coleccionReservas[i];
-		}
+		} //Mismo funcionamiento que getReservasProfesor
 	}
 	return reserva;
 	}
@@ -192,7 +195,7 @@ public class Reservas {
 				
 				if(coleccionReservas[i].getAula().equals(aula) && coleccionReservas[i].getPermanencia().equals(permanencia)) {
 					disponible = false;	
-			}
+			} //Consulta la disponibilidad introduciendo un aula y permanencia. Si son iguales devuelve false.
 		}
 		return disponible;
 	}

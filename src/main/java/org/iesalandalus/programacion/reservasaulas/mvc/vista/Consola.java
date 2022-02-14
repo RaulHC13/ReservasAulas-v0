@@ -23,12 +23,12 @@ public class Consola {
 		}
 		}
 	public static void mostrarCabecera(String cabecera) {
-		
+		//Este metodo muestra un mensaje con formato, es util para mostrar cabezera en cada metodo y que de un mensaje distinto
 		System.out.printf("%n%s", cabecera);
 		System.out.printf("%n----------------%n");
 		}
 	public static int elegirOpcion(){
-		
+		//Pide int mientras no se corresponda con un ordinal valido.
 		int opcion;
 		do {
 			System.out.println("Elige una opción: ");
@@ -39,9 +39,7 @@ public class Consola {
 	}
 	public static Aula leerAula() {
 		
-		System.out.println("Introduce el nombre del aula: ");
-		String nombreAula = Entrada.cadena();
-		Aula aula = new Aula(nombreAula);
+		Aula aula = new Aula(leerNombreAula());
 		
 		return aula;
 	}
@@ -62,7 +60,7 @@ public class Consola {
 			System.out.println("Introduce el email del profesor: ");
 			correo = Entrada.cadena();
 		}while(!correo.matches("[a-zñÑA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zñÑA-Z0-9](?:[a-zñÑA-Z0-9-]{0,61}[a-zñÑA-Z0-9])?(?:\\.[a-zñÑA-Z0-9](?:[a-zñÑA-Z0-9-]{0,61}[a-zñÑA-Z0-9])?)"));
-		
+		//Se pide un correo y telefono mientras estos no sean validos
 		do {
 			System.out.println("Introduce el número de telefono o pulsa ENTER para dejarlo en blanco.");
 			telefono = Entrada.cadena();
@@ -70,7 +68,9 @@ public class Consola {
 		
 		Profesor profesor = (telefono.isBlank()||telefono == null)
 		? new Profesor(nombre, correo) : new Profesor(nombre, correo, telefono);
-		
+		/*Un if else. Si el telefono esta en blanco o es nulo, se utiliza el constructor sin telefono
+		 * y si no se dan esas condiciones significa que existe un telefono valido por lo que se utiliza el constructor con 3 parametros
+		 */
 		return profesor;
 	}
 	public static String leerNombreProfesor() {
@@ -90,7 +90,7 @@ public class Consola {
 			opcion = Entrada.entero();
 		} while (opcion != 0 && opcion != 1);
 		
-		return Tramo.values()[opcion];
+		return Tramo.values()[opcion];//Devuelve la opcion del ordinal elegido, 0 o 1.
 	}
 	public static LocalDate leerDia() { 
 	

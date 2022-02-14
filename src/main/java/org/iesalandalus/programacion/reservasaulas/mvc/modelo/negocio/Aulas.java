@@ -23,8 +23,8 @@ public class Aulas {
 		
 		return copiaProfundaAulas();
 	}
-	private Aula[] copiaProfundaAulas() {
-		
+	private Aula[] copiaProfundaAulas() {//Se crea una copia profuna creando un nuevo array y copiando los valor
+										//tambien se puede utilizar foreach
 		Aula[] copiaProfunda = new Aula[capacidad];
 		
 		for (int i = 0; !tamanoSuperado(i); i++) {
@@ -49,7 +49,7 @@ public class Aulas {
 		} else {
 			throw new OperationNotSupportedException("ERROR: No existe ningún aula con ese nombre.");
 		}
-		tamano++;
+		tamano++;//Al insertar hay que aumentar el tamaño.
 	}
 	public Aula buscar(Aula aula) {
 		
@@ -77,7 +77,7 @@ public class Aulas {
 			throw new OperationNotSupportedException("ERROR: No existe ningún aula con ese nombre.");
 		}
 		desplazarUnaPosicionHaciaIzquierda(indice);
-		tamano--;
+		tamano--;//Al borrar se reduce el tamaño.
 	}
 	private int buscarIndice(Aula aula) {
 		
@@ -129,7 +129,8 @@ public class Aulas {
 	}
 	public String[] representar() {
 		
-		String[] representar = new String[tamano];
+		String[] representar = new String[tamano];/*Se crea un array de string en el que se copian
+		los valores del array coleccion en cada iteracion */
 		
 		for (int i = 0; !tamanoSuperado(i) ;i++) {
 			

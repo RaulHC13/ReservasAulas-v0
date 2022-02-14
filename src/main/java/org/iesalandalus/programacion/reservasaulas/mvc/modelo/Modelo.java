@@ -11,7 +11,7 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.Reservas;
 
 public class Modelo {
 	
-	private final static int CAPACIDAD = 5;
+	private final static int CAPACIDAD = 5; //La capacidad del aulas profesores y reservas. En este caso le he dado 5.
 	private Aulas aulas;
 	private Profesores profesores;
 	private Reservas reservas;
